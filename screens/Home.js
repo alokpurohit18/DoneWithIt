@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View, ScrollView } from "react-native";
 import HeaderTabs from "../components/HeaderTabs";
 import SearchBar from "../components/SearchBar";
 import Categories from "../components/Categories";
+import BottomTabs from "../components/BottomTabs";
 import RestaurantItems from "../components/RestaurantItems";
 import { Divider } from "react-native-elements";
 
@@ -49,6 +50,7 @@ export default function Home() {
         <RestaurantItems restaurantData={restaurantData} />
       </ScrollView>
       <Divider width={1} />
+      <BottomTabs />
     </SafeAreaView>
   );
 }
