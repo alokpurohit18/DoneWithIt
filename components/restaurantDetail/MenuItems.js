@@ -7,13 +7,14 @@ import {
   Image,
   StyleSheet,
 } from "react-native";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { Divider } from "react-native-elements";
 
 const foods = [
   {
     id: 1,
     title: "Shanghai Fried Noodles",
-    description: "Wok tossed fried noodles with spicy schezwan sauce",
+    description: "Wok tossed fried noodles with spicy schezwan sauce 🔥",
     price: "$19.50",
     image:
       "https://www.aheadofthyme.com/wp-content/uploads/2016/01/shanghai-fried-noodles-in-10-minutes-2.jpg",
@@ -30,7 +31,7 @@ const foods = [
     id: 3,
     title: "Mumbai Pav Bhaji",
     description:
-      "Spicy Indian mixed vegetable curry and buns from the streets of Mumbai",
+      "Spicy Indian mixed vegetable curry and buns from the streets of Mumbai 🚀",
     price: "$24.90",
     image:
       "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Instant-Pot-Mumbai-Pav-Bhaji-Recipe.jpg",
@@ -49,7 +50,8 @@ const styles = StyleSheet.create({
   menuItemStyle: {
     flexDirection: "row",
     justifyContent: "space-between",
-    margin: 20,
+    marginHorizontal: 15,
+    marginVertical: 20,
   },
 
   titleStyle: {
@@ -69,7 +71,11 @@ export default function MenuItems() {
       {foods.map((food, index) => (
         <View key={index}>
           <MenuItem food={food} />
-          <Divider width={0.5} orientation="vertical" />
+          <Divider
+            width={0.5}
+            orientation="vertical"
+            style={{ marginHorizontal: 20 }}
+          />
         </View>
       ))}
     </ScrollView>
@@ -78,7 +84,11 @@ export default function MenuItems() {
 
 const MenuItem = (props) => (
   <View style={styles.menuItemStyle}>
-    <View style={{ width: 240, justifyContent: "space-evenly" }}>
+    <BouncyCheckbox
+      iconStyle={{ borderColor: "lightgrry", borderRadius: 0 }}
+      fillColor="green"
+    />
+    <View style={{ width: 220, justifyContent: "space-evenly" }}>
       <Text style={styles.titleStyle}>{props.food.title}</Text>
       <Text style={styles.descriptionStyle}>{props.food.description}</Text>
       <Text style={styles.descriptionStyle}>{props.food.price}</Text>

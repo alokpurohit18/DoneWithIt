@@ -1,7 +1,7 @@
 import React from "react";
-import Home from "./screens/Home";
-import RestaurantDetail from "./screens/RestaurantDetail";
+import RootNavigation from "./utilities/navigation";
+import "react-native-gesture-handler";
 
 export default function App() {
-  return <RestaurantDetail />;
+  return <RootNavigation />;
 }

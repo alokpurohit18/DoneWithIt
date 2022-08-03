@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, View, ScrollView, Image } from "react-native";
 
-const image =
-  "https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?cs=srgb&dl=pexels-chan-walrus-941861.jpg&fm=jpg";
+export default function About(props) {
+  const { name, image, price, reviews, rating, categories } =
+    props.route.params;
 
-const title = "Farmhouse Kitchen Thai Cuisine";
-const description = "Thai · Comfortv Food · $$ · 🎫 · 4 ⭐ (2913+)";
+  const formattedCategories = categories.map((cat) => cat.title).join(" · ");
 
-export default function About() {
+  const description = `${formattedCategories} ${
+    price ? " · " + price : ""
+  } · 🎫 · ${rating} ⭐ (${reviews}+)`;
+
   return (
     <View>
       <RestaurantImage image={image} />
-      <RestaurantTitle title={title} />
+      <RestaurantName name={name} />
       <RestaurantDescription description={description} />
     </View>
   );
@@ -21,7 +24,7 @@ const RestaurantImage = (props) => (
   <Image source={{ uri: props.image }} style={{ width: "100%", height: 180 }} />
 );
 
-const RestaurantTitle = (props) => (
+const RestaurantName = (props) => (
   <Text
     style={{
       fontSize: 29,
@@ -30,7 +33,7 @@ const RestaurantTitle = (props) => (
       marginHorizontal: 15,
     }}
   >
-    {props.title}
+    {props.name}
   </Text>
 );
 
